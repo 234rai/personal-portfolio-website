@@ -31,10 +31,15 @@ import { Textarea } from "@/components/ui/textarea.jsx";
 import { Badge } from "@/components/ui/badge.jsx";
 import { Card, CardContent } from "@/components/ui/card.jsx";
 import { ThemeToggle } from "@/components/ThemeToggle.jsx";
-import profilePhoto from "@/assets/my photo.jpg";
 import resumePdf from "@/assets/Resume.pdf";
-import diseasePredictionImg from "@/assets/disease_prediction_project.png";
+import profilePhoto from "@/assets/my photo.jpg";
 import shoe_landingpage from "@/assets/shoe_landingpage.png";
+import pr1_img1 from "@/assets/pr1_img1.png";
+import pr1_img2 from "@/assets/pr1_img2.png";
+import pr1_img3 from "@/assets/pr1_img3.png";
+import pr2_img1 from "@/assets/pr2_img1.png";
+import pr2_img2 from "@/assets/pr2_img2.png";
+import pr2_img3 from "@/assets/pr2_img3.png";
 import { GitHubCalendar } from "react-github-calendar";
 import OrbitSystem from "@/components/OrbitSystem.jsx";
 
@@ -485,7 +490,7 @@ function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="relative flex justify-center items-center"
+            className="relative flex justify-center items-center max-w-full overflow-hidden"
           >
             {/* Responsive scaling wrapper — the orbit visual is designed at 500×500px
                 and scales down proportionally on smaller screens */}
@@ -602,8 +607,7 @@ function AboutSection() {
             <div className="bg-white/5 dark:bg-white/5 backdrop-blur-lg border border-white/10 dark:border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)] hover:bg-white/10 dark:hover:bg-white/10 transition-all duration-300 rounded-2xl p-6 md:p-8 group">
               <div className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed">
                 <p>
-                  I&apos;m a passionate <span className="text-foreground">Full Stack Developer</span> with
-                  over 5 years of experience building modern web applications. My journey started
+                  I&apos;m a passionate <span className="text-foreground">Full Stack Developer</span> building modern web applications. My journey started
                   with a curiosity about how things work, which led me to fall in love with creating
                   elegant solutions to complex problems.
                 </p>
@@ -812,7 +816,7 @@ function ProjectsSection() {
     {
       title: "Disease Prediction System",
       description: "A machine learning based web application for predicting multiple diseases based on user symptoms.",
-      image: diseasePredictionImg,
+      images: [pr1_img2, pr1_img1, pr1_img3],
       tags: ["Machine Learning", "Python", "Streamlit"],
       github: "https://github.com/234rai/Diease-Prediction",
       demo: "https://diease-prediction-s2aix5uu2bxqdfayzhk5jz.streamlit.app/",
@@ -820,8 +824,8 @@ function ProjectsSection() {
     },
     {
       title: "AI-Recruitment-HireHubb",
-      description: "A machine learning based web application for predicting multiple diseases based on user symptoms.",
-      image: diseasePredictionImg,
+      description: "An AI powered app for job seekers & recruiters to find best matches.",
+      images: [pr2_img2, pr2_img1, pr2_img3],
       tags: ["Flutter", "Dart", "Firebase"],
       github: "https://github.com/234rai/Ai-Recruitment-HireHubb",
       demo: "https://recuritmentproject.web.app",
@@ -829,7 +833,7 @@ function ProjectsSection() {
     },
     {
       title: "Shoe Landing Page",
-      description: "A web page of shoe using basic HTML and CSS with responsiv design.",
+      description: "A web page of shoe using basic HTML and CSS with responsive design.",
       image: shoe_landingpage,
       tags: ["HTML", "CSS"],
       github: "https://github.com/234rai/shoe_landing_page",
@@ -878,7 +882,31 @@ function ProjectsSection() {
                       </Badge>
                     </div>
                   )}
-                  <img src={project.image} alt={project.title} className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 rounded-md drop-shadow-md" />
+                  {project.images ? (
+                    <div className="relative w-full h-full flex items-center justify-center pt-8 overflow-hidden group-hover:scale-105 transition-transform duration-500">
+                      <div className="flex justify-center items-end h-[115%] w-[105%] gap-2 px-2 pb-2">
+                        {/* Apple-style mobile app screenshots display - High Quality */}
+                        <div className="relative w-[30%] h-[85%] rotate-[-5deg] translate-y-2 translate-x-2 shadow-[-5px_10px_20px_rgb(0,0,0,0.4)] rounded-[1rem] overflow-hidden border-[2px] border-[#333] dark:border-[#222] z-10 bg-black">
+                          <img src={project.images[0]} alt={`${project.title} screen 1`} className="w-full h-full object-cover object-top opacity-90 transition-opacity duration-300 group-hover:opacity-100" />
+                          <div className="absolute inset-0 shadow-[inset_0_0_10px_rgba(0,0,0,0.5)] pointer-events-none rounded-[0.8rem]" />
+                        </div>
+
+                        <div className="relative w-[36%] h-[95%] shadow-[0_15px_35px_rgb(0,0,0,0.6)] rounded-[1.25rem] overflow-hidden border-[3px] border-[#222] dark:border-[#111] z-20 bg-black">
+                          <img src={project.images[1]} alt={`${project.title} screen 2`} className="w-full h-full object-cover object-top" />
+                          {/* iPhone style top notch */}
+                          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[40%] h-[12px] bg-[#222] dark:bg-[#111] rounded-b-[6px] z-30" />
+                          <div className="absolute inset-0 shadow-[inset_0_0_15px_rgba(0,0,0,0.6)] pointer-events-none rounded-[1rem]" />
+                        </div>
+
+                        <div className="relative w-[30%] h-[85%] rotate-[5deg] translate-y-2 -translate-x-2 shadow-[5px_10px_20px_rgb(0,0,0,0.4)] rounded-[1rem] overflow-hidden border-[2px] border-[#333] dark:border-[#222] z-10 bg-black">
+                          <img src={project.images[2]} alt={`${project.title} screen 3`} className="w-full h-full object-cover object-top opacity-90 transition-opacity duration-300 group-hover:opacity-100" />
+                          <div className="absolute inset-0 shadow-[inset_0_0_10px_rgba(0,0,0,0.5)] pointer-events-none rounded-[0.8rem]" />
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <img src={project.image} alt={project.title} className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 rounded-md drop-shadow-md" />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 </div>
                 <CardContent className="p-4">
