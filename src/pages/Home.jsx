@@ -985,7 +985,7 @@ function ExperienceSection() {
       type: "education",
       title: "B.Tech Information Technology",
       company: "Marwadi University",
-      period: "2022 - Present",
+      period: "2022 - 2026",
       description: "Learned about web & mobile app development , Artifical Intelligence and it's core maths and computer networking. GPA: 8.55/10.0",
     },
     {
